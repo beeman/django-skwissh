@@ -26,8 +26,8 @@ def getMeasures():
         env.connection_attempts = 1
         servers = Server.objects.filter(is_measuring=False)
         if servers:
-            env.hosts = ["%s@%s" % (server.username, server.ip) for server in servers]
-            env.passwords = dict([("%s@%s" % (server.username, server.ip), server.password) for server in servers])
+            env.hosts = ["%s@%s:%s" % (server.username, server.ip, server.port) for server in servers]
+            env.passwords = dict([("%s@%s:%s" % (server.username, server.ip, server.port), server.password) for server in servers])
             with hide('everything'):
                 execute(launch_command, now)
     except:

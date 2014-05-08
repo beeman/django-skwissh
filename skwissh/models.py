@@ -50,6 +50,7 @@ class Probe(models.Model):
 class Server(models.Model):
     hostname = models.CharField(max_length=255, verbose_name=_(u"Nom du serveur"))
     ip = models.CharField(max_length=255, verbose_name=_(u"Adresse IP"), blank=True)
+    port = models.CharField(max_length=5, verbose_name=_(u"SSH Port"), blank=True)
     state = models.BooleanField(verbose_name=_(u"Serveur accessible ?"), default=False)
     is_measuring = models.BooleanField(verbose_name=_(u"Serveur en cours de mesures ?"), default=False)
     username = models.CharField(max_length=50, verbose_name=_(u"Nom d'utilisateur SSH"), blank=True, default="")

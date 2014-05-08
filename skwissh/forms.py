@@ -19,7 +19,7 @@ class ServerForm(ModelForm):
 
     class Meta:
         model = Server
-        fields = ('hostname', 'probes', 'ip', 'username', 'password')
+        fields = ('hostname', 'probes', 'ip', 'port', 'username', 'password')
         widgets = {"probes": forms.CheckboxSelectMultiple,
                    "password": forms.PasswordInput}
 
